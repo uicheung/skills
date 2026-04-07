@@ -2,7 +2,7 @@
 name: generate-insight-article
 description: >
   Generate structured, deeply-researched Chinese long-form articles
-  spanning AI前沿、科技趋势、太空探索、思想与哲学.
+  spanning AI前沿、科技趋势、太空探索、思想与哲学、健康科学、国际政治、行情/市场分析.
   The agent produces insight-driven articles based on user-provided topics,
   always grounded in the latest verifiable news and developments.
   Writing style defaults to immersive narrative with philosophical depth,
@@ -23,6 +23,9 @@ description: >
 | 科技趋势 | 技术变革的人文视角 | 关注硬件、生物技术、量子计算等领域的重大突破及其深远影响 |
 | 太空探索 | 人类文明的星际叙事 | 聚焦最新航天任务、深空发现、商业航天进展及文明意义 |
 | 思想与哲学 | 当代议题的哲学审视 | 从哲学框架重新审视当下正在发生的一切，连接古今思想脉络 |
+| 健康科学 | 生命科学与医学前沿 | 关注医学突破、药物研发、公共卫生趋势及健康生活方式研究 |
+| 国际政治 | 全球格局与地缘博弈 | 聚焦国际关系、大国博弈、区域冲突及全球治理议题 |
+| 行情/市场分析 | 金融市场与行业动态 | 关注股市、债市、外汇、大宗商品及新兴市场趋势与投资逻辑 |
 
 ## 流程触发场景
 
@@ -122,6 +125,48 @@ description: >
 | https://www.thepublicdiscourse.com | EN | 公共思想讨论 |
 | https://dingjingzhou.com | CN | 丁教舟（哲学普及） |
 | https://www.thepaper.cn | CN | 澎湃新闻·思想市场 |
+
+#### 健康科学领域推荐信源
+| 信源 | 语言 | 说明 |
+|---|---|---|
+| https://www.nejm.org | EN | 新英格兰医学期刊 |
+| https://www.thelancet.com | EN | The Lancet 柳叶刀 |
+| https://www.nature.com/subjects/biological-sciences | EN | Nature 生物科学 |
+| https://www.cell.com | EN | Cell 细胞期刊 |
+| https://www.who.int/news | EN | WHO 世界卫生组织新闻 |
+| https://www.cdc.gov | EN | CDC 美国疾控中心 |
+| https://www.sciencedirect.com | EN | ScienceDirect 医学研究 |
+| https://www.cn-healthcare.com | CN | 健康界 |
+| https://www.yicai.com | CN | 第一财经·健康 |
+| https://www.thepaper.cn/滚动 | CN | 澎湃新闻·科技 |
+
+#### 国际政治领域推荐信源
+| 信源 | 语言 | 说明 |
+|---|---|---|
+| https://www.foreignaffairs.com | EN | Foreign Affairs 外交事务 |
+| https://www.brookings.edu | EN | Brookings Institution 布鲁金斯学会 |
+| https://www.cfr.org | EN | Council on Foreign Relations 外交关系协会 |
+| https://www.rits | EN | RAND Corporation 兰德公司 |
+| https://www.theatlantic.com/international | EN | The Atlantic 大西洋月刊国际版 |
+| https://www.economist.com/international | EN | The Economist 国际版 |
+| https://www.guancha.cn | CN | 观察者网 |
+| https://www.guancha.cn/military/ | CN | 观察者网·军事频道 |
+| https://www.xinhuanet.com/world | CN | 新华网·国际 |
+| https://www.cctv.com/military | CN | 央视网·军事 |
+
+#### 行情/市场分析领域推荐信源
+| 信源 | 语言 | 说明 |
+|---|---|---|
+| https://www.bloomberg.com/markets | EN | Bloomberg Markets |
+| https://www.wsj.com/market-data | EN | WSJ Market Data |
+| https://www.ft.com/markets | EN | Financial Times Markets |
+| https://www.reuters.com/markets | EN | Reuters Markets |
+| https://www.cnbc.com/markets | EN | CNBC Markets |
+| https://finance.yahoo.com | EN | Yahoo Finance |
+| https://www.eastmoney.com | CN | 东方财富网 |
+| https://www.cls.cn/market | CN | 财联社·市场 |
+| https://www.jiemian.com | CN | 界面新闻·财经 |
+| https://xueqiu.com | CN | 雪球财经 |
 
 ### 搜索执行规范
 1. **先广后深**：首先用 3-5 个不同信源进行广泛搜索，获取该话题的全景概览
@@ -232,7 +277,7 @@ Agent 向用户展示 3-5 个大纲方向，用户选择其一或提出融合修
 ```markdown
 | 主题 | <文章标题> |
 |---|---|
-| 领域 | AI前沿 / 科技趋势 / 太空探索 / 思想与哲学 |
+| 领域 | AI前沿 / 科技趋势 / 太空探索 / 思想与哲学 / 健康科学 / 国际政治 / 行情/市场分析 |
 | 导读 | <用两三句话概括文章核心问题与阅读价值，让读者决定是否深入阅读> |
 | 写作日期 | <YYYY-MM-DD> |
 ```
